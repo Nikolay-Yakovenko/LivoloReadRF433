@@ -45,8 +45,8 @@ Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
 
 - В ESPHome создаем новое устройство, называем (например) **livoloreadrf433**.
 Прошиваем его стартовой прошивкой.
-Затем кладем файлик LivoloReadRF433.h по пути **config\esphome\\**
-рядом с **livoloreadrf433.yaml**
+Затем кладем файлик **[LivoloReadRF433.h](config\esphome\livoloreadrf433.yaml)** по пути **config\esphome\\**
+рядом с **[livoloreadrf433.yaml](config\esphome\livoloreadrf433.yaml)**, который будет создан в системе.
 
 - Редактируем файл настроек **livoloreadrf433.yaml**
   - прописываем в начале файла:
@@ -122,11 +122,9 @@ mode: single
 Для включения возможности изменения значений датчиков через автоматизации, надо:
 1. В configuration.yaml добавить "python_script:"
 2. В папке config (в ней лежит configuration.yaml) создать папку "python_scripts"
-3. В папку "python_scripts" положить файл "set_state.py"
+3. В папку "python_scripts" положить файл "[set_state.py](config\python_scripts\set_state.py)"
 4. Перезагрузить HA.
 
-Более подробно описано в статье (статья не моя):
-https://kvvhost.ru/2020/05/03/python-set-state-ha/
+Более подробно описано в [статье](https://kvvhost.ru/2020/05/03/python-set-state-ha/) (статья не моя).
 
-Код обработчика нажатий клавиш пульта взят здесь:
-https://forum.arduino.cc/t/control-livolo-switches-livolo-switch-library/149850
+Код обработчика нажатий клавиш пульта взят [здесь](https://forum.arduino.cc/t/control-livolo-switches-livolo-switch-library/149850).
