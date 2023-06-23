@@ -10,7 +10,7 @@ Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
 **Используемые компоненты:**
 - ESP8266-01S 
 
-![Фото](photo\ESP8266-01S.jpg)
+<img src="photo\ESP8266-01S.jpg"/>
 
 - Приемник на 433МГц QIACHIP RX500A
 
