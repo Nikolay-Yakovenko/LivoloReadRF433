@@ -75,7 +75,7 @@ Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
           force_update: true
     ```
 
-    В результате в интеграции ESPHome появится устройство LivoloReadRF433.
+    В результате в Home Assistant, в интеграции ESPHome появится устройство LivoloReadRF433.
 
 ## Пример автоматизации:
 
