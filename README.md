@@ -1,5 +1,6 @@
 # LivoloReadRF433 for Home Assistant
 Чтение кодов **RF433** брелоков от фирмы **Livolo** с помощью **ESPHome**.
+
 Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
 
 ## О проекте
@@ -45,7 +46,7 @@ Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
 
 - В ESPHome создаем новое устройство, называем (например) **livoloreadrf433**.
 Прошиваем его стартовой прошивкой.
-Затем кладем файлик **[LivoloReadRF433.h](config\esphome\livoloreadrf433.yaml)** по пути **config\esphome\\**
+Затем кладем файлик **[LivoloReadRF433.h](config\esphome\livoloreadrf433.yaml)** по пути **"config\esphome\\"**
 рядом с **[livoloreadrf433.yaml](config\esphome\livoloreadrf433.yaml)**, который будет создан в системе.
 
 - Редактируем файл настроек **livoloreadrf433.yaml**
@@ -75,7 +76,7 @@ Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
           force_update: true
     ```
 
-    В результате в Home Assistant, в интеграции ESPHome появится устройство LivoloReadRF433.
+    В результате в Home Assistant, в интеграции ESPHome появится устройство LivoloReadRF433, с двумя сенсорами RemoteID (код пульта) и KeyCode (код кнопки).
 
 ## Пример автоматизации:
 
