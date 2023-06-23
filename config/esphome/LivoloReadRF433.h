@@ -1,8 +1,7 @@
 #include "esphome.h"
 
 #define SIGNAL_IN 2 // INTERRUPT 0 = DIGITAL PIN 2 - use the interrupt number in attachInterrupt
-//Вход GPIO2 для ESP8266-01
-//Входной сигнал от приемника (receiver) подключаем к контакту D7 (GPIO13, RXD2) платы LoLin NodeMcu v3
+//Entrance GPIO2 for ESP8266-01
 
 volatile byte impulse = 0;
 volatile int bufor[53];
@@ -11,7 +10,7 @@ volatile unsigned long StartPeriod = 0;
 volatile boolean stop_ints = false;
 
 
-//процедура преобразования входящего сигнала
+//Input signal transformation procedure
 void IRAM_ATTR calcInput()
 {
   // get the time using micros
@@ -40,13 +39,13 @@ reset:
   impulse = 0;
   return;
 }
-//процедура закончена
+//The procedure is over
 
 
 
 
 
-//class LivoloReadRF433 : public Component, public Sensor 
+
 class LivoloReadRF433 : public PollingComponent, public Sensor
 {
  public:
@@ -57,23 +56,20 @@ class LivoloReadRF433 : public PollingComponent, public Sensor
    float get_setup_priority() const override { return esphome::setup_priority::AFTER_CONNECTION; }
 
   void setup() override {
-  ESP_LOGD("custom", "Начинается инициализация pinMode");
+  ESP_LOGD("custom", "Initialization begins pinMode");
   pinMode(SIGNAL_IN, INPUT);
-  ESP_LOGD("custom", "Прошла инициализация pinMode");
+  ESP_LOGD("custom", "Initialization was undergone pinMode");
   
-  ESP_LOGD("custom", "Начинается инициализация attachInterrupt");
+  ESP_LOGD("custom", "Initialization begins attachInterrupt");
     attachInterrupt(SIGNAL_IN, calcInput, CHANGE);
-  ESP_LOGD("custom", "Прошла инициализация attachInterrupt");
+  ESP_LOGD("custom", "Initialization was undergone attachInterrupt");
   }
   
-//  void loop() override {
+
   void update() override {
   
-      // You can also log messages
-      //ESP_LOGD("custom", "основной цикл");
-	  //delay (1000);
 	  //Serial.println("bitRead: ");
-  //Serial.println("handleInterrupt");
+    //Serial.println("handleInterrupt");
   if (stop_ints) //data in buffer
   {
     unsigned long binary = 1;
@@ -125,10 +121,10 @@ class LivoloReadRF433 : public PollingComponent, public Sensor
       Serial.print("key code:");
       Serial.println(binary & 127);
       Serial.println();
-	  //ESP_LOGD("custom", "Поймали код");
-	  //Serial.println(remoteID);
-	  //publish_state(55);
-	  //publish_state(remoteID);
+	    //ESP_LOGD("custom", "Caught the code");
+	    //Serial.println(remoteID);
+	  
+   	  
 	  
 	  RemoteID->publish_state ((binary / 128) & 65535);
 	  
@@ -143,6 +139,10 @@ class LivoloReadRF433 : public PollingComponent, public Sensor
     header = false;
     impulse = 0;
     stop_ints = false;
+    
+    //We drop the codes
+    RemoteID->publish_state (0); 
+    KeyCode->publish_state (0);
 
     // }
   }

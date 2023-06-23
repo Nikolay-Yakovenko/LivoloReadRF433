@@ -96,19 +96,19 @@ condition:
     entity_id: sensor.livoloreadrf433_remoteid #такой сенсор будет создан, если имя устройства задали livoloreadrf433
     state: "32375" #код пульта
 action:
-  - type: toggle
-    device_id: 38ec008bb918814e2981071e5c2b6022  #здесь прописываете ваш выключатель
-    entity_id: switch.switch_3
-    domain: switch
-    enabled: true
-  - service: python_script.set_state #данное действие пришлось добавить, из-за некорректного отрабатывания параметра force_update: true
-    data_template:
-      entity_id: sensor.livoloreadrf433_keycode
-      state: "100" #принудительно устанавливаем записываем в сенсор keycode "100".
-    enabled: true
+  - service: switch.toggle  #запускаем службу switch для переключения света
+    data: {}
+    target:
+      entity_id:
+        - switch.YOU_SWITCH_ENTITY_ID 
 mode: single
 ```
+где YOU_SWITCH_ENTITY_ID сущность вашего выключателя.
+
 ## Дополнение:
+    Уже не актуально !!!
+    Был изменен код и на данный момент все работает нормально После передачи кодов сделано принудительное обнуление значений сенсоров.
+
 При тестировании обнаружилась проблема: при нажатии на одну и туже кнопку пульта, в Home Assistant передавалось только первое нажатие. Если нажимать разные кнопки - всё передавалось нормально.
 
 Т.е. в логе ESPHome устройства был виден перехват кода кнопки, но т.к. его значение не изменялось, передача в HA не осуществлялась.
@@ -129,3 +129,6 @@ mode: single
 Более подробно описано в [статье](https://kvvhost.ru/2020/05/03/python-set-state-ha/) (статья не моя).
 
 Код обработчика нажатий клавиш пульта взят [здесь](https://forum.arduino.cc/t/control-livolo-switches-livolo-switch-library/149850).
+
+<!--## Благодарности:-->
+
