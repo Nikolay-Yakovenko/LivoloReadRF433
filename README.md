@@ -131,5 +131,6 @@ mode: single
 
 Код обработчика нажатий клавиш пульта взят [здесь](https://forum.arduino.cc/t/control-livolo-switches-livolo-switch-library/149850).
 
-<!--## Благодарности:-->
+## Благодарности:
 
+ - [Andrew](https://github.com/andrewjswan) за советы и помощь с кодом.
