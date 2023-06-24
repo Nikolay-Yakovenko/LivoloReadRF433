@@ -22,7 +22,7 @@ Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
 <img src="photo\hi-link-pm01-3w.jpg" width="320"/> 
 <!--// height="300" />-->
 
-- Пульт Livolo
+- Пульт Livolo (обозначение на плате VL-RMT02 VER:B6)
 
 <img src="photo\photo_1.jpg" width="320"/> 
 
