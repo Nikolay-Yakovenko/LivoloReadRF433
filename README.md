@@ -134,3 +134,5 @@ mode: single
 ## Благодарности:
 
  - [Andrew](https://github.com/andrewjswan) за советы и помощь с кодом.
+ - [Телеграм-канал посвященный ESPHome](https://t.me/esphome)
+ - [Сайт ESPHome](https://esphome.io)
