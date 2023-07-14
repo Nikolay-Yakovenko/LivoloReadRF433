@@ -17,9 +17,9 @@ Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
 
 <img src="photo\QIACHIP RX500A top1.jpg" width="320"/>
 
-- Питание на Ваш вкус. Я использую Hi-Link HLP-PM01 (5В, 0.6А)
-
-<img src="photo\hi-link-pm01-3w.jpg" width="320"/> 
+<!-- - Питание на Ваш вкус. Я использую Hi-Link HLP-PM01 (5В, 0.6А) -->
+- Питание на Ваш вкус. Я использую Hi-Link HLP-PM03 (3.3В, 3W)
+<img src="photo\HLK-PM03_AC-DC.jpg" width="320"/> 
 <!--// height="300" />-->
 
 - Пульт Livolo (обозначение на плате VL-RMT02 VER:B6)
