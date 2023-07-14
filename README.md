@@ -19,6 +19,7 @@ Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
 
 <!-- - Питание на Ваш вкус. Я использую Hi-Link HLP-PM01 (5В, 0.6А) -->
 - Питание на Ваш вкус. Я использую Hi-Link HLP-PM03 (3.3В, 3W)
+
 <img src="photo\HLK-PM03_AC-DC.jpg" width="320"/> 
 <!--// height="300" />-->
 
