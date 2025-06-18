@@ -5,6 +5,13 @@ esphome:
   name: "livoloreadrf433"
   friendly_name: LivoloReadRF433
 
+# We return the support of custom components.
+external_components:
+   - source:
+       type: git
+       url: https://github.com/robertklep/esphome-custom-component
+     components: [ custom, custom_component ]
+
 esp8266:
   board: esp01_1m
 
