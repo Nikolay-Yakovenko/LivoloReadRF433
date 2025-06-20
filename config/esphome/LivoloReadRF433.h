@@ -141,8 +141,8 @@ class LivoloReadRF433 : public PollingComponent, public Sensor
     stop_ints = false;
     
     //We drop the codes
-    RemoteID->publish_state (0); 
-    KeyCode->publish_state (0);
+    //RemoteID->publish_state (0); 
+    //KeyCode->publish_state (0);
 
     // }
   }
