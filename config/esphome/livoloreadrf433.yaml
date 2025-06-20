@@ -9,7 +9,8 @@ esphome:
 external_components:
    - source:
        type: git
-       url: https://github.com/robertklep/esphome-custom-component
+       url: https://github.com/esphome/esphome
+       ref: 2024.12.4
      components: [ custom, custom_component ]
 
 esp8266:
@@ -47,5 +48,18 @@ sensor:
   sensors:
     - name: "RemoteID"
       force_update: true
+# Обнуляем показания сенсора через 0.5 секунды после отпускания кнопки 
+# We reset the sensor readings 0.5 seconds after the release of the button
+      filters:   
+       - timeout:
+           timeout: 0.5s
+           value: !lambda return 0;
+
     - name: "KeyCode"    
       force_update: true
+# Обнуляем показания сенсора через 0.5 секунды после отпускания кнопки 
+# We reset the sensor readings 0.5 seconds after the release of the button
+      filters:   
+       - timeout:
+           timeout: 0.5s
+           value: !lambda return 0;
