@@ -60,6 +60,17 @@ Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
 
     ```
 
+  - так как в версии ESPHome 2025.2.0 была прекращена поддержка кастомных компонентов, то компиляция не выполнялась. Для исправления добавляем следующий код:
+    ```yaml
+    external_components:
+      - source:
+          type: git
+          url: https://github.com/esphome/esphome
+          ref: 2024.12.4
+        components: [ custom, custom_component ]
+
+    ```
+
   - и добавляем сенсоры:
 
     ```yaml
@@ -73,8 +84,18 @@ Reading codes **RF433** key fobs from **Livolo** using **ESPHome**.
       sensors:
         - name: "RemoteID"
           force_update: true
+          filters:
+          - timeout:
+              timeout: 0.5s
+              value: !lambda return 0;
+
         - name: "KeyCode"    
           force_update: true
+          filters:
+          - timeout:
+              timeout: 0.5s
+              value: !lambda return 0;
+          
     ```
 
     В результате в Home Assistant, в интеграции ESPHome появится устройство LivoloReadRF433, с двумя сенсорами RemoteID (код пульта) и KeyCode (код кнопки).
