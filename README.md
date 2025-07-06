@@ -112,11 +112,11 @@ trigger:
     entity_id:
       - sensor.livoloreadrf433_keycode  #такой сенсор будет создан, если имя устройства задали livoloreadrf433
     from: null
-    to: "8" #код кнопки
+    to: "8.0" #код кнопки
 condition:
   - condition: state
     entity_id: sensor.livoloreadrf433_remoteid #такой сенсор будет создан, если имя устройства задали livoloreadrf433
-    state: "32375" #код пульта
+    state: "32375.0" #код пульта
 action:
   - service: switch.toggle  #запускаем службу switch для переключения света
     data: {}
